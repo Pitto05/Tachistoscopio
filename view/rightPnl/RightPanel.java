@@ -10,6 +10,9 @@ import java.awt.*;
 
 public class RightPanel extends JPanel {
     private CardLayout cardLayout;
+    private TextPanel textPanel;
+    private ExpositionPanel expositionPanel;
+    private DisplayPanel displayPanel;
 
     public RightPanel() {
         cardLayout = new CardLayout();
@@ -19,13 +22,13 @@ public class RightPanel extends JPanel {
     }
 
     private void createSettingsPages() {
-        TextPanel textPanel = new TextPanel();
+        textPanel = new TextPanel();
         textPanel.initialize();
 
-        ExpositionPanel expositionPanel = new ExpositionPanel();
+        expositionPanel = new ExpositionPanel();
         expositionPanel.initialize();
 
-        DisplayPanel displayPanel = new DisplayPanel();
+        displayPanel = new DisplayPanel();
         displayPanel.initialize();
 
         add(textPanel, "Testo");
@@ -36,6 +39,16 @@ public class RightPanel extends JPanel {
     public void showPage(String pageName) {
         cardLayout.show(this, pageName);
     }
+    
+    public TextPanel getTextPanel() {
+        return textPanel;
+    }
+    
+    public ExpositionPanel getExpositionPanel() {
+    	return expositionPanel;
+    }
+    
+    
 }
 
 
