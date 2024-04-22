@@ -3,6 +3,9 @@ package app.tachi.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.SwingUtilities;
+
+import app.tachi.Main;
 import app.tachi.UIEventListener;
 import app.tachi.model.Model;
 import app.tachi.view.View;
@@ -14,13 +17,13 @@ public class Controller implements UIEventListener{
 	
 	private Model model;
     private View view;
-    private RightPanel rightPnl;
+    
     
 
-    public Controller(Model model, View view, RightPanel rightPnl) {
+    public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-        this.rightPnl = rightPnl;
+        
         
 
         // Aggiunge il listener per l'evento di aggiornamento
@@ -44,12 +47,24 @@ public class Controller implements UIEventListener{
 	}
 
 	@Override
-	public void onSpinnerValueChanged(int value) {
-		String valueAsString = String.valueOf(value);
-		model.setGrandezza(value);
-		rightPnl.getExpositionPanel().getnumMilli().setText(valueAsString);
-		rightPnl.getExpositionPanel().repaint();
-		System.out.println("ooooooo");
+	public void onSpinnerValueChanged(int value, String nome) {
+		
+		if(nome == "Spinner Esposizione") {
+			String valueAsString = String.valueOf(value);
+			SwingUtilities.invokeLater(() -> {
+		        view.getRPnl().getExpositionPanel().updateNumMilliLabelText(valueAsString);
+		        
+		    });
+			model.setDuration(value);
+		}
+		
+		
+		
+		
+	    
+	    
+		
+		
 	}
 
     

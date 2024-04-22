@@ -17,7 +17,7 @@ import app.tachi.controller.Controller;
 
 public class ExpositionPanel extends RightPanelBase {
     
-	private Controller listener;
+	//private Controller listener;
 	
 	private JSpinner millesimi = new JSpinner();
     private JLabel numMilli = new JLabel();
@@ -38,12 +38,14 @@ public class ExpositionPanel extends RightPanelBase {
         numMilli.setText("prova");
         
         
+        millesimi.setName("Spinner Esposizione");
         millesimi.setPreferredSize(new Dimension(70, millesimi.getPreferredSize().height)); // Imposta la larghezza preferita per il JSpinner
         millesimi.addChangeListener(e -> {
             int value = (int) millesimi.getValue();
             spinnerValueChanged(value);
-            numMilli.repaint();
+            
         });
+        
         
         
         centerPanel.add(millesimi);
@@ -55,8 +57,13 @@ public class ExpositionPanel extends RightPanelBase {
 	
 	private void spinnerValueChanged(int value) {
         if (Main.controller != null) {
-        	Main.controller.onSpinnerValueChanged(value);
+        	Main.controller.onSpinnerValueChanged(value, millesimi.getName());
+        	//updateNumMilliLabelText(String.valueOf(value));
         }
+    }
+	
+	public void updateNumMilliLabelText(String newText) {
+        numMilli.setText(newText);
     }
 	
 	public JLabel getnumMilli() {

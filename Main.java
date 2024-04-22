@@ -9,12 +9,13 @@ public class Main {
 
 	public static Controller controller;
 	
+	
 	public static void main(String[] args) {
 		Model model = new Model();
         View view = new View();
-        RightPanel rightPnl = new RightPanel();
         
-        controller = new Controller(model, view, rightPnl);
+        
+        controller = new Controller(model, view);
         
         
         
