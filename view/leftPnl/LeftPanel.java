@@ -21,6 +21,7 @@ public class LeftPanel extends JPanel {
         JButton textButton = new JButton("Testo");
         JButton expositionButton = new JButton("Esposizione");
         JButton displayButton = new JButton("Display");
+        JButton paroleButton = new JButton("Parole");
         JButton startButton = new JButton("Avvio");
         
        
@@ -28,6 +29,7 @@ public class LeftPanel extends JPanel {
         textButton.setBounds(10, 10, 250, 40);
         expositionButton.setBounds(10, 60, 250, 40);
         displayButton.setBounds(10, 110, 250, 40);
+        paroleButton.setBounds(10, 160, 250, 40);
         startButton.setBounds(10, 593, 250, 40);
 
         
@@ -39,10 +41,10 @@ public class LeftPanel extends JPanel {
 
         // Applicazione del bordo e del colore di sfondo bianco ai bottoni
 
-        textButton.setBorder(emptyBorder);
+        //textButton.setBorder(emptyBorder);
         //generalButton.setBackground(Color.WHITE);
         textButton.setOpaque(true);
-        textButton.setContentAreaFilled(false);
+        //textButton.setContentAreaFilled(false);
         textButton.setBorderPainted(false);
 
         //expositionButton.setBorder(emptyBorder);
@@ -51,11 +53,15 @@ public class LeftPanel extends JPanel {
         //expositionButton.setContentAreaFilled(false);
         expositionButton.setBorderPainted(false);
 
-        displayButton.setBorder(emptyBorder);
-        displayButton.setBackground(Color.WHITE);
+        //displayButton.setBorder(emptyBorder);
+        //displayButton.setBackground(Color.WHITE);
         displayButton.setOpaque(true);
         //displayButton.setContentAreaFilled(false);
         displayButton.setBorderPainted(false);
+        
+        paroleButton.setOpaque(true);
+        paroleButton.setBorderPainted(false);
+        
         
         startButton.setBorder(emptyBorder);
         startButton.setBackground(Color.BLACK); // Imposta il colore di sfondo nero per il pulsante fullscreen
@@ -76,6 +82,7 @@ public class LeftPanel extends JPanel {
         textButton.addActionListener(listener);
         expositionButton.addActionListener(listener);
         displayButton.addActionListener(listener);
+        paroleButton.addActionListener(listener);
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Creazione di una nuova finestra utilizzando la classe NewFrame
@@ -86,6 +93,7 @@ public class LeftPanel extends JPanel {
         add(textButton);
         add(expositionButton);
         add(displayButton);
+        add(paroleButton);
         add(startButton);
     }
 }

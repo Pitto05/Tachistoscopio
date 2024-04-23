@@ -11,9 +11,12 @@ public class Model {
     private int duration;
     private Font font;
     private Color color;
-    private Point position;
+    private Point position = new Point(10, 10);
     private int grandezza;
+    private boolean posFissa = true;
 	
+    
+    
     
     
     public String[] getWord() {
@@ -41,10 +44,23 @@ public class Model {
 		this.color = color;
 	}
 	public Point getPosition() {
+		if (posFissa==true) {
+			return position;
+		}
+		if (posFissa==false) {
+			Point posCasuale = generateRandomPoint(10, 10, 10, 10);
+			return posCasuale;
+		}
+		
+		
 		return position;
 	}
 	public void setPosition(Point position) {
 		this.position = position;
+	}
+	
+	public void setRandomPosition() {
+		posFissa = false;
 	}
 	
 	public int getGrandezza() {
@@ -53,6 +69,17 @@ public class Model {
 	public void setGrandezza(int grandezza) {
 		this.grandezza = grandezza;
 	}
+	
+	
+	
+	    public static Point generateRandomPoint(int minX, int maxX, int minY, int maxY) {
+	        // Genera coordinate casuali all'interno dell'intervallo specificato
+	        int randomX = (int) (Math.random() * (maxX - minX + 1)) + minX;
+	        int randomY = (int) (Math.random() * (maxY - minY + 1)) + minY;
+	        
+	        // Crea e restituisce un nuovo oggetto Point con le coordinate generate
+	        return new Point(randomX, randomY);
+	    }
 	
 	@Override
 	public String toString() {

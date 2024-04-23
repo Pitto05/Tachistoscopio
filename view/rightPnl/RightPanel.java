@@ -13,6 +13,7 @@ public class RightPanel extends JPanel {
     private TextPanel textPanel;
     private ExpositionPanel expositionPanel;
     private DisplayPanel displayPanel;
+    private ParolePanel parolePanel;
 
     public RightPanel() {
         cardLayout = new CardLayout();
@@ -30,10 +31,14 @@ public class RightPanel extends JPanel {
 
         displayPanel = new DisplayPanel();
         displayPanel.initialize();
+        
+        parolePanel = new ParolePanel();
+        parolePanel.initialize();
 
         add(textPanel, "Testo");
         add(expositionPanel, "Esposizione");
         add(displayPanel, "Display");
+        add(parolePanel, "Parole");
     }
 
     public void showPage(String pageName) {

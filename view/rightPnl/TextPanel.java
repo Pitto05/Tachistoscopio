@@ -16,14 +16,19 @@ import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
+import app.tachi.Main;
 import app.tachi.UIEventListener;
 
 class TextPanel extends RightPanelBase implements ActionListener{
 	
-	private UIEventListener listener;
+	
     
 	private JLabel sizeLabel;
-	private JSpinner sizeSpinner;
+	SpinnerNumberModel spinnerModel = new SpinnerNumberModel(15, // Valore iniziale
+			3, // Valore minimo
+			40, // Valore massimo
+			1); // Passo di incremento
+	private JSpinner sizeSpinner = new JSpinner(spinnerModel);
 	private JLabel titleLabel;
 	private JPanel settingsPanel;
 	private JLabel fontLabel;
@@ -60,7 +65,7 @@ class TextPanel extends RightPanelBase implements ActionListener{
 
         // Aggiungi componenti per impostare la dimensione del testo
         sizeLabel = new JLabel("Dimensione del testo:");
-        sizeSpinner = new JSpinner(new SpinnerNumberModel(12, 6, 36, 1)); // Spinner per selezionare la dimensione del testo
+        sizeSpinner.setName("Spinner Dimensione");
         settingsPanel.add(sizeLabel);
         settingsPanel.add(sizeSpinner);
         sizeSpinner.addChangeListener(e -> {
@@ -97,24 +102,21 @@ class TextPanel extends RightPanelBase implements ActionListener{
     }
 	
 	
-	
-	public void setUIEventListener(UIEventListener listener) {
-        this.listener = listener;
-    }
+
 
    
 	// Metodo chiamato quando il valore del JSpinner cambia
     private void spinnerValueChanged(int value) {
-        if (listener != null) {
-            listener.onSpinnerValueChanged(value);
+        if (Main.controller != null) {
+        	Main.controller.onSpinnerValueChanged(value, "Spinner Dimensione");
         }
     }
 	
 	
 	// Metodo chiamato quando un pulsante viene premuto
     private void buttonClicked(String buttonName) {
-        if (listener != null) {
-            listener.onButtonClicked(buttonName);
+        if (Main.controller != null) {
+            Main.controller.onButtonClicked(buttonName);
         }
     }
 	

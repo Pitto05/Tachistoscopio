@@ -53,12 +53,15 @@ public class Controller implements UIEventListener{
 			String valueAsString = String.valueOf(value);
 			SwingUtilities.invokeLater(() -> {
 		        view.getRPnl().getExpositionPanel().updateNumMilliLabelText(valueAsString);
-		        
+		        model.setDuration(value);   
 		    });
-			model.setDuration(value);
+			System.out.println(model.getDuration());
 		}
 		
-		
+		if(nome == "Spinner Dimensione") {
+			model.setGrandezza(value);
+			System.out.println(model.getGrandezza());
+		}
 		
 		
 	    

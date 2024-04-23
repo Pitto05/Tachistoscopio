@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 import app.tachi.Main;
 import app.tachi.UIEventListener;
@@ -19,9 +20,14 @@ public class ExpositionPanel extends RightPanelBase {
     
 	//private Controller listener;
 	
-	private JSpinner millesimi = new JSpinner();
+	
     private JLabel numMilli = new JLabel();
     private JPanel centerPanel;
+    SpinnerNumberModel spinnerModel = new SpinnerNumberModel(250, // Valore iniziale
+            												250, // Valore minimo
+            												10000, // Valore massimo
+            												250); // Passo di incremento
+    private JSpinner millesimi = new JSpinner(spinnerModel);
 ;	
 	public void initialize() {
         setLayout(new BorderLayout());
@@ -45,6 +51,7 @@ public class ExpositionPanel extends RightPanelBase {
             spinnerValueChanged(value);
             
         });
+        
         
         
         
