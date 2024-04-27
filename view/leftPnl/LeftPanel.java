@@ -7,6 +7,7 @@ import javax.swing.border.*;
 
 import app.tachi.view.PannelloVisualizzazione;
 import app.tachi.view.TachiSettingsFrame;
+import app.tachi.view.VisualFrame;
 
 public class LeftPanel extends JPanel {
     public LeftPanel() {
@@ -86,7 +87,13 @@ public class LeftPanel extends JPanel {
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Creazione di una nuova finestra utilizzando la classe NewFrame
-                PannelloVisualizzazione newFrame = new PannelloVisualizzazione();
+                
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                    	VisualFrame frameVisualizzazione = new VisualFrame();
+                    	frameVisualizzazione.setVisible(true);
+                    }
+                });
             }
         });
 

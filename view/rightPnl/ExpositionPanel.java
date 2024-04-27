@@ -4,12 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.JToggleButton;
 import javax.swing.SpinnerNumberModel;
 
 import app.tachi.Main;
@@ -28,6 +31,8 @@ public class ExpositionPanel extends RightPanelBase {
             												10000, // Valore massimo
             												250); // Passo di incremento
     private JSpinner millesimi = new JSpinner(spinnerModel);
+    private JToggleButton toggleButton = new JToggleButton("Si/No");
+    
 ;	
 	public void initialize() {
         setLayout(new BorderLayout());
@@ -52,11 +57,28 @@ public class ExpositionPanel extends RightPanelBase {
             
         });
         
-        
+        toggleButton.setText("No");
+        toggleButton.setSelected(false);
+        toggleButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (toggleButton.isSelected()) {
+                    toggleButton.setText("On");
+                    // Azioni da eseguire quando lo switch è acceso
+                    toggleButtonChanged(true, null);
+                } else {
+                    toggleButton.setText("Off");
+                    // Azioni da eseguire quando lo switch è spento
+                    toggleButtonChanged(false, null);
+                }
+            }
+
+			
+        });
         
         
         centerPanel.add(millesimi);
         centerPanel.add(numMilli);
+        centerPanel.add(toggleButton);
         
         add(centerPanel, BorderLayout.CENTER);
         
@@ -65,9 +87,14 @@ public class ExpositionPanel extends RightPanelBase {
 	private void spinnerValueChanged(int value) {
         if (Main.controller != null) {
         	Main.controller.onSpinnerValueChanged(value, millesimi.getName());
-        	//updateNumMilliLabelText(String.valueOf(value));
         }
     }
+	
+	private void toggleButtonChanged(boolean b, String nome) {
+		if (Main.controller != null) {
+        	Main.controller.onToggleButtonChanged(b, null);
+        }
+	}
 	
 	public void updateNumMilliLabelText(String newText) {
         numMilli.setText(newText);

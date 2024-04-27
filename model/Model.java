@@ -19,7 +19,19 @@ public class Model {
     
     
     
-    public String[] getWord() {
+    public String[] getParole() {
+		return parole;
+	}
+	public void setParole(String[] parole) {
+		this.parole = parole;
+	}
+	public boolean isPosFissa() {
+		return posFissa;
+	}
+	public void setPosFissa(boolean posFissa) {
+		this.posFissa = posFissa;
+	}
+	public String[] getWord() {
 		return parole;
 	}
 	public void setWord(String[] parole) {
