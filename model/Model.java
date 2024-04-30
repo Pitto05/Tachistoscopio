@@ -33,6 +33,9 @@ public class Model {
 	}
 	public String[] getWord() {
 		return parole;
+		
+		
+		//porca vacca
 	}
 	public void setWord(String[] parole) {
 		this.parole = parole;
