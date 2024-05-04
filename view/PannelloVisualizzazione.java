@@ -27,6 +27,12 @@ public class PannelloVisualizzazione extends JPanel {
         
         bottone = new JButton("Avvio");
         
+        bottone.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                bottonePremuto();
+            }
+        });
+        
         add(bottone);
     }
     
@@ -52,6 +58,7 @@ public class PannelloVisualizzazione extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        System.out.println("qui");
         // Disegna il testo al centro del pannello
         g.setColor(Color.BLACK);
         FontMetrics fm = g.getFontMetrics();

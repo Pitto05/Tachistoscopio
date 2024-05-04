@@ -51,5 +51,9 @@ public class TachiSettingsFrame extends JFrame {
     public RightPanel getRightPanel() {
         return rightPanel;
     }
+    
+    public LeftPanel getLeftPanel() {
+		return leftPanel;
+	}
 }
 

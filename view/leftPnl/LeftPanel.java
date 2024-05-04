@@ -10,7 +10,10 @@ import app.tachi.view.TachiSettingsFrame;
 import app.tachi.view.VisualFrame;
 
 public class LeftPanel extends JPanel {
-    public LeftPanel() {
+    
+	VisualFrame frameVisualizzazione;
+	
+	public LeftPanel() {
         //setLayout(new GridLayout(0, 1, 100, 100));
     	//setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     	setLayout(null);
@@ -90,7 +93,7 @@ public class LeftPanel extends JPanel {
                 
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                    	VisualFrame frameVisualizzazione = new VisualFrame();
+                    	frameVisualizzazione = new VisualFrame();
                     	frameVisualizzazione.setVisible(true);
                     }
                 });
@@ -103,4 +106,10 @@ public class LeftPanel extends JPanel {
         add(paroleButton);
         add(startButton);
     }
+
+	public VisualFrame getFrameVisualizzazione() {
+		return frameVisualizzazione;
+	}
+    
+    
 }

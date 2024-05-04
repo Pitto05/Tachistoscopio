@@ -7,8 +7,8 @@ import java.util.Arrays;
 
 public class Model {
 	
-	private String[] parole;
-    private int duration;
+	private String[] parole = {"godo", "un", "casino"};
+    private int duration = 250;
     private Font font;
     private Color color;
     private Point position = new Point(10, 10);
@@ -33,9 +33,6 @@ public class Model {
 	}
 	public String[] getWord() {
 		return parole;
-		
-		
-		//porca vacca
 	}
 	public void setWord(String[] parole) {
 		this.parole = parole;

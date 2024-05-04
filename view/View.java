@@ -11,7 +11,8 @@ import app.tachi.view.rightPnl.RightPanel;
 public class View {
 	
 	public TachiSettingsFrame mainFrame;
-	public PannelloVisualizzazione visualFrame;
+	//public VisualFrame visualFrame;
+	//public PannelloVisualizzazione visualPnl;
 
     public View() {
        
@@ -19,16 +20,20 @@ public class View {
             public void run() {
             	mainFrame = new TachiSettingsFrame();
             	mainFrame.setVisible(true);
+            	
             }
         });
     	
     }
     
-    public RightPanel getRPnl() {
+    public VisualFrame getVisualFrame() {
+		return mainFrame.getLeftPanel().getFrameVisualizzazione();
+	}
+
+
+	public RightPanel getRPnl() {
     	return mainFrame.getRightPanel();
     }
 
-    public PannelloVisualizzazione getVisualPnl() {
-    	return visualFrame;
-    }
+    
 }

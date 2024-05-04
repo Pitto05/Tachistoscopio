@@ -40,13 +40,13 @@ public class Controller implements UIEventListener{
     }
 
     public void displayParola() {
-    	Model modelPerEsecuzione = new Model();
-    	String[] parole = modelPerEsecuzione.getParole();
-    	int durata = modelPerEsecuzione.getDuration();
+    	//Model modelPerEsecuzione = new Model();
+    	String[] parole = model.getParole();
+    	int durata = model.getDuration();
     	
     	for(int i=0; i<parole.length; i++) {
 
-    		view.getVisualPnl().setShowCircle(true);
+    		view.getVisualFrame().getVisualPnl().setShowCircle(true);
 
 
     		// Attendi per la durata specificata
@@ -56,7 +56,7 @@ public class Controller implements UIEventListener{
     			e.printStackTrace();
     		}
 
-    		view.getVisualPnl().setShowCircle(false);
+    		view.getVisualFrame().getVisualPnl().setShowCircle(false);
     		
     		// Attendi per la durata specificata
     		try {
@@ -65,7 +65,7 @@ public class Controller implements UIEventListener{
     			e.printStackTrace();
     		}
 
-    		view.getVisualPnl().setWord(parole[i]);
+    		view.getVisualFrame().getVisualPnl().setWord(parole[i]);
     		
     		// Attendi per la durata specificata
     		try {
@@ -74,7 +74,7 @@ public class Controller implements UIEventListener{
     			e.printStackTrace();
     		}
     		
-    		view.getVisualPnl().setWord(null);
+    		view.getVisualFrame().getVisualPnl().setWord(null);
     	}
     }
 

@@ -13,6 +13,7 @@ import app.tachi.view.rightPnl.RightPanel;
 public class VisualFrame extends JFrame{
 	private PannelloVisualizzazione visualPnl;
 	
+
 	public VisualFrame() {
         setTitle("Tachistoscopio");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -30,5 +31,8 @@ public class VisualFrame extends JFrame{
         
     }
 	
+	public PannelloVisualizzazione getVisualPnl() {
+		return visualPnl;
+	}
 	
 }
